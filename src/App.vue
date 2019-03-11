@@ -1,18 +1,40 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="hellow vue"/>
+    <ev/>
+    <com :age="age" @patch="msg">
+      <h3 slot="b"> 我要加东西</h3>
+      <h2 slot="a">我要加东西</h2>
+    </com>
+
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import './components/n'
+import com from './components/com'
+import ev from './components/events'
 export default {
   name: 'app',
+  data() {
+    return {
+      age:118
+    }
+  },
+  methods:{
+    msg:function (ag) {
+     this.age++
+      window.console.log(ag)
+    }
+  },
   components: {
-    HelloWorld
-  }
+    HelloWorld,
+    ev,
+    com
+  },
+
 }
 </script>
 

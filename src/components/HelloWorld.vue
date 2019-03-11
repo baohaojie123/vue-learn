@@ -1,6 +1,28 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <div v-html="msg1" :id="id"></div>
+    <div class="" v-if="see">
+      {{number + 1}}
+    </div>
+    <p v-else>1111</p>
+    <div v-n="4"></div>
+    <p>本来有{{money}},借出了{{a}},还剩{{b}}</p>
+    <div :class="[a1,a2]">style</div>
+    <div :class="{test3:a3}">style</div>
+    <div :class="obj">style</div>
+    <ul>
+      <li v-for="(item,index) in list" :key="item">
+        {{item}},{{index}}
+      </li>
+    </ul>
+    <ul>
+      <template v-for="item in list">
+        <li :key="item+1">hello</li>
+        <li :key="item">{{item}}</li>
+      </template>
+
+    </ul>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -35,6 +57,29 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+    // data为函数的原因，多实例共享函数
+    data () {
+      return {
+          msg1: '<span style="color:red">baohaojie</span>',
+          id: '001',
+          see: false,
+          number: 1,
+          money:100,
+          a:1,
+          a1:"test1",
+          a2:"test2",
+          a3:true,
+          obj:{
+            test4:true
+          },
+          list:['a','b','c','d']
+      }
+    },
+  computed:{
+    b:function () {
+      return this.money - this.a
+    }
   }
 }
 </script>
