@@ -1,21 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="hellow vue"/>
+    <!--<img alt="Vue logo" src="./assets/logo.png">-->
+    <!--<HelloWorld msg="hellow vue"/>-->
     <ev/>
     <com :age="age" @patch="msg">
       <h3 slot="b"> 我要加东西</h3>
       <h2 slot="a">我要加东西</h2>
     </com>
+    <!--<Vuexx></Vuexx>-->
+    <pagea></pagea>
+    <pageb></pageb>
 
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 import './components/n'
 import com from './components/com'
 import ev from './components/events'
+// import Vuexx from './components/vuex'
+import pagea from './components/a'
+import pageb from './components/b'
 export default {
   name: 'app',
   data() {
@@ -30,9 +36,12 @@ export default {
     }
   },
   components: {
-    HelloWorld,
+    // HelloWorld,
     ev,
-    com
+    com,
+    // Vuexx,
+    pagea,
+    pageb
   },
 
 }
