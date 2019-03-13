@@ -2,16 +2,17 @@ const state = {
   money:1
 }
 const mutations = {
-  add(state){
-    state.money++
+  add(state,param){
+    state.money+=param
   },
   reduce(state){
     state.money--
   }
 }
+// 参数从actions传到mutations里
 const actions = {
-  add:({commit}) => {
-    commit('add')
+  add:({commit},param) => {
+    commit('add',param)
   },
   reduce:({commit}) => {
     commit('reduce')
